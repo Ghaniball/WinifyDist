@@ -2,4 +2,4 @@ vendor
 app_php/logs
 app_php/WnfSite/config/settings.php
 dist/calculator
-/dist/images/calc
+dist/images/calc
