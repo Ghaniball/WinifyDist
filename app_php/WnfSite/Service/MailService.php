@@ -15,6 +15,8 @@ class MailService {
 
 	public function send() {
 		$mailCfg = $this->config;
+		
+		Message::setEncoding('UTF-8');
 
 		$message = new Message();
 		$message//->setFrom($mailCfg->from->mail, $mailCfg->from->name)
