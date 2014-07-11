@@ -21,8 +21,7 @@ class MailService {
 				->addTo($mailCfg->to->mail, $mailCfg->to->name)
 				->addTo($mailCfg->cc->mail, $mailCfg->cc->name)
 				->addTo($mailCfg->bcc->mail, $mailCfg->bcc->name)
-				->setSubject($mailCfg->subject)
-				->setEncoding("UTF-8");
+				->setSubject($mailCfg->subject);
 
 		// Setup SMTP transport using LOGIN authentication
 		//$transport = new Transport\SmtpTransport();
@@ -48,6 +47,11 @@ class MailService {
 		$body->addPart($html);
 
 		$message->setBody($body);
+		
+		// Set UTF-8 charset
+		$headers = $message->getHeaders();
+		$headers->removeHeader('Content-Type');
+		$headers->addHeaderLine('Content-Type', 'text/html; charset=UTF-8');
 
 		//$transport->setOptions($options);
 		$transport->send($message);
