@@ -15,15 +15,14 @@ class MailService {
 
 	public function send() {
 		$mailCfg = $this->config;
-		
-		Message::setEncoding('UTF-8');
 
 		$message = new Message();
 		$message//->setFrom($mailCfg->from->mail, $mailCfg->from->name)
 				->addTo($mailCfg->to->mail, $mailCfg->to->name)
 				->addTo($mailCfg->cc->mail, $mailCfg->cc->name)
 				->addTo($mailCfg->bcc->mail, $mailCfg->bcc->name)
-				->setSubject($mailCfg->subject);
+				->setSubject($mailCfg->subject)
+				->setEncoding("UTF-8");
 
 		// Setup SMTP transport using LOGIN authentication
 		//$transport = new Transport\SmtpTransport();
