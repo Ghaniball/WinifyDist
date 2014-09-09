@@ -1,5 +1,5 @@
 <div class="navbar" id="nav1"><!-- Toggle for mobile navigation, targeting the <ul> --><a class="toggle" gumby-trigger="#nav1 > ul" href="#"><i class="icon-menu"></i></a><div class="pull_left logo"><a href="{{path}}?intro" data-ng-click="skipTo('intro');
-				   sendEvent($event, 'S0WinifyLogo');"><img class="big-logo" alt="Winify Logo" src="/images/a33643b7.logo_winify.png"> <!--<img class="small-logo"--> <!--src="/images/logo-des.png"/>--> <span data-ng-hide="BrowserSize.width < 875">Winify</span></a></div><ul class="pull_right"><li data-ng-repeat="_block in homePageBlocks"><a href="{{path}}?{{_block.name}}" data-ng-class="{active: block === _block.name}" data-ng-click="skipTo(_block.name); sendEvent($event,'S0' + (_block.name.charAt(0).toUpperCase() + _block.name.slice(1)));">{{_block.text}}</a></li><!--
+				   sendEvent($event, 'S0WinifyLogo');"><img class="big-logo" alt="Winify Logo" src="/images/a33643b7.logo_winify.png"> <!--<img class="small-logo"--> <!--src="/images/logo-des.png"/>--> <span data-ng-hide="BrowserSize.width < 875">Winify</span></a></div><ul class="pull_right"><li data-ng-repeat="_block in l10n.homePageBlocks"><a href="{{path}}?{{_block.name}}" data-ng-class="{active: block === _block.name}" data-ng-click="skipTo(_block.name); sendEvent($event,'S0' + (_block.name.charAt(0).toUpperCase() + _block.name.slice(1)));">{{_block.text[lang]}}</a></li><!--
 		<li><a href="{{path}}?intro"
 			   data-ng-click="skipTo('intro');
 				   sendEvent($event, 'S0WinifyHome');">Home</a></li>
@@ -14,4 +14,4 @@
 				   sendEvent($event, 'S0Projekte');">Projekte</a></li>
 		<li><a href="{{path}}?contact"
 			   data-ng-click="skipTo('contact');
-				   sendEvent($event, 'S0Contact');">Kontakt</a></li>--><li><a href="/calculator/" target="_self" data-ng-click="sendEvent($event, 'S0Calculator');">Projektrechner</a></li></ul></div>
+				   sendEvent($event, 'S0Contact');">Kontakt</a></li>--><li><a href="/calculator/" target="_self" data-ng-click="sendEvent($event, 'S0Calculator');">{{l10n.footer.menu.calculator[lang]}}</a></li></ul></div>
