@@ -4,3 +4,4 @@ app_php/WnfSite/config/settings.php
 dist/calculator
 dist/images/calc
 dist/autodeploy.php
+dist/autodeploy.php~
