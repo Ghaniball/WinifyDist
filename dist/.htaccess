@@ -547,14 +547,14 @@ FileETag None
 
 	RewriteCond %{QUERY_STRING} ^_escaped_fragment_=.*$
 	RewriteRule ^$ /de/ [R,L]
-	
+
 	RewriteCond %{QUERY_STRING} ^_escaped_fragment_=.*$
 	RewriteRule ^(de|en)/$ snapshots/$1/index.html? [L,NC]
-	
+
 	RewriteCond %{QUERY_STRING} ^_escaped_fragment_=.*$
 	RewriteRule ^(de|en)/(.*)/$ snapshots/$1/$2.html? [L,NC]
-	
-	
+
+
 	# {HOST}/styles/main.css => {DocumentRoot}/styles/main.css
 	# {HOST}/calculator => {DocumentRoot}/calculator/
 	# {HOST}/ => {DocumentRoot}/index.html
@@ -562,15 +562,14 @@ FileETag None
 	# {HOST}/asdf => {HOST}/
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_URI} !^/[de|en|index.html]
-	RewriteRule ^/?.+$ / [L,R]
+	RewriteCond %{QUERY_STRING} !redirect=no
+	RewriteCond %{REQUEST_URI} !^/(de|en|index\.html?)
+	RewriteRule ^/?.+$ / [R,L]
 
-	
-	RewriteRule ^[de|en](.*) $1
+	RewriteRule ^(de|en)(.*) $2?redirect=no [QSA]
 
-	
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_URI} !^/[de|en]
-	RewriteRule (.*) index.html [QSA,L]
+	RewriteCond %{REQUEST_URI} !^/(de|en)
+	RewriteRule (.*) index.html [END]
 </IfModule>
