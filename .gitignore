@@ -5,3 +5,4 @@ dist/calculator
 dist/images/calc
 dist/autodeploy.php
 dist/autodeploy.php~
+.idea
